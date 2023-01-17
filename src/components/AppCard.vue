@@ -17,6 +17,9 @@ export default {
 <template lang="">
     <main class="container">
         <div class="row">
+            Carte trovate: {{ store.cardList.length }}
+        </div>
+        <div class="row">
             <CharacterCard v-for="(item, index) in store.cardList" :key="index" :card="item" />
         </div>
     </main>
