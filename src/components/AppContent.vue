@@ -9,11 +9,9 @@ export default {
 </script>
 
 <template lang="">
-   <main>
         <AppCard />
-   </main>
 </template>
 
-<style lang="scss">
-    
+<style lang="scss" scoped>
+
 </style>
