@@ -16,7 +16,7 @@ export default {
 
 <template lang="">
     <main class="container">
-        <div class="row">
+        <div class="row card-length">
             Carte trovate: {{ store.cardList.length }}
         </div>
         <div class="row">
@@ -30,6 +30,12 @@ export default {
 
     main{
         background-color: $color-white;
-        margin-top: 4rem;
+        margin-top: 15px;
+    }
+
+    .card-length{
+        padding: 15px 10px;
+        background-color: rgb(42, 41, 41);
+        color: $color-white;
     }
 </style>

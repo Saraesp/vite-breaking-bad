@@ -2,6 +2,7 @@
 import AppHeader from './components/AppHeader.vue';
 import AppContent from './components/AppContent.vue';
 import AppLoader from './components/AppLoader.vue';
+import AppFilter from './components/AppFilter.vue';
 
 import { store } from './store.js';
 import axios from 'axios';
@@ -11,7 +12,8 @@ export default {
     components: {
       AppHeader,
       AppContent,
-      AppLoader
+      AppLoader,
+      AppFilter,
     },
     data(){
       return {
@@ -23,7 +25,10 @@ export default {
     },
     methods: {
       getAppCard(){
-        axios.get(store.url).then((response) => {
+        let myUrl = `${store.url}${store.selectedGenere}`;
+        console.log(myUrl);
+
+        axios.get(myUrl).then((response) => {
           store.cardList = response.data.data;
           setTimeout(() => {
             store.isLoader = true
@@ -37,6 +42,7 @@ export default {
 <template lang="">
   <div v-if="store.isLoader">
     <AppHeader />
+    <AppFilter @filter="getAppCard"/>
     <AppContent />
   </div>
   <div v-else>
